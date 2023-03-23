@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examen2doParcial", "Examen2doParcial\Examen2doParcial.csproj", "{CB799832-318E-4C88-B392-755487327AE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfazGrafica", "Examen2doParcial\InterfazGrafica.csproj", "{CB799832-318E-4C88-B392-755487327AE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{8136C440-50CA-42C6-8171-EF374A556D9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDatos", "BaseDatos\BaseDatos.csproj", "{30483132-3FB9-4E3A-8737-11BB1F7E7400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{CB799832-318E-4C88-B392-755487327AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB799832-318E-4C88-B392-755487327AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB799832-318E-4C88-B392-755487327AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8136C440-50CA-42C6-8171-EF374A556D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8136C440-50CA-42C6-8171-EF374A556D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8136C440-50CA-42C6-8171-EF374A556D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8136C440-50CA-42C6-8171-EF374A556D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30483132-3FB9-4E3A-8737-11BB1F7E7400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30483132-3FB9-4E3A-8737-11BB1F7E7400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30483132-3FB9-4E3A-8737-11BB1F7E7400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30483132-3FB9-4E3A-8737-11BB1F7E7400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
