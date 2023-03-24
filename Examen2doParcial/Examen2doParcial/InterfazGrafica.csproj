@@ -130,5 +130,11 @@
       <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users_theuser_6177.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\degradado azul.jfif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,5 +6,12 @@
         {
             InitializeComponent();
         }
+
+        private void toolStripButton2_Click(object sender, System.EventArgs e)
+        {
+            Ticket enlace = new Ticket();//creando objeto de la clase  "Ticket"
+            enlace.Show();//mostrando formulario de ticket
+
+        }
     }
 }

@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.idUsuarioTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.serieTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.respuestaRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.descripcionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.clienteTextBox = new System.Windows.Forms.TextBox();
@@ -50,16 +58,11 @@
             this.isvTextBox = new System.Windows.Forms.TextBox();
             this.guardarButton = new System.Windows.Forms.Button();
             this.cancelarButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.descripcionRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.respuestaRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -73,6 +76,7 @@
             // 
             // idUsuarioTextBox
             // 
+            this.idUsuarioTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.idUsuarioTextBox.Location = new System.Drawing.Point(108, 19);
             this.idUsuarioTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.idUsuarioTextBox.Name = "idUsuarioTextBox";
@@ -114,7 +118,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.serieTextBox);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.respuestaRichTextBox);
             this.groupBox2.Controls.Add(this.descripcionRichTextBox);
@@ -129,10 +133,83 @@
             this.groupBox2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 79);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1215, 319);
+            this.groupBox2.Size = new System.Drawing.Size(1215, 328);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de Ticket";
+            // 
+            // serieTextBox
+            // 
+            this.serieTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.serieTextBox.Location = new System.Drawing.Point(183, 113);
+            this.serieTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.serieTextBox.Name = "serieTextBox";
+            this.serieTextBox.Size = new System.Drawing.Size(233, 26);
+            this.serieTextBox.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(18, 117);
+            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(148, 19);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Número  de serie: ";
+            // 
+            // respuestaRichTextBox
+            // 
+            this.respuestaRichTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.respuestaRichTextBox.Location = new System.Drawing.Point(210, 229);
+            this.respuestaRichTextBox.Name = "respuestaRichTextBox";
+            this.respuestaRichTextBox.Size = new System.Drawing.Size(999, 52);
+            this.respuestaRichTextBox.TabIndex = 19;
+            this.respuestaRichTextBox.Text = "";
+            // 
+            // descripcionRichTextBox
+            // 
+            this.descripcionRichTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.descripcionRichTextBox.Location = new System.Drawing.Point(210, 159);
+            this.descripcionRichTextBox.Name = "descripcionRichTextBox";
+            this.descripcionRichTextBox.Size = new System.Drawing.Size(999, 52);
+            this.descripcionRichTextBox.TabIndex = 17;
+            this.descripcionRichTextBox.Text = "";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Ordenador",
+            "Celular"});
+            this.comboBox1.Location = new System.Drawing.Point(183, 69);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 18;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(132, 299);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(12, 297);
+            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 19);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Ticket Activo:";
             // 
             // label6
             // 
@@ -141,9 +218,9 @@
             this.label6.Location = new System.Drawing.Point(12, 246);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(172, 19);
+            this.label6.Size = new System.Drawing.Size(197, 19);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Respuesta Solicitud: ";
+            this.label6.Text = "Descripcion Respuesta: ";
             // 
             // label5
             // 
@@ -158,7 +235,7 @@
             // 
             // clienteTextBox
             // 
-            this.clienteTextBox.Enabled = false;
+            this.clienteTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.clienteTextBox.Location = new System.Drawing.Point(183, 27);
             this.clienteTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.clienteTextBox.Name = "clienteTextBox";
@@ -189,11 +266,11 @@
             // 
             // precioTextBox
             // 
+            this.precioTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.precioTextBox.Location = new System.Drawing.Point(117, 24);
             this.precioTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.ReadOnly = true;
-            this.precioTextBox.Size = new System.Drawing.Size(89, 26);
+            this.precioTextBox.Size = new System.Drawing.Size(94, 26);
             this.precioTextBox.TabIndex = 12;
             // 
             // label7
@@ -217,7 +294,7 @@
             this.groupBox3.Controls.Add(this.isvTextBox);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.precioTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(1002, 404);
+            this.groupBox3.Location = new System.Drawing.Point(1002, 413);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(225, 200);
             this.groupBox3.TabIndex = 14;
@@ -236,6 +313,7 @@
             // 
             // totalTextBox
             // 
+            this.totalTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.totalTextBox.Location = new System.Drawing.Point(120, 150);
             this.totalTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.totalTextBox.Name = "totalTextBox";
@@ -256,10 +334,10 @@
             // 
             // desctoTextBox
             // 
+            this.desctoTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.desctoTextBox.Location = new System.Drawing.Point(120, 108);
             this.desctoTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.desctoTextBox.Name = "desctoTextBox";
-            this.desctoTextBox.ReadOnly = true;
             this.desctoTextBox.Size = new System.Drawing.Size(89, 26);
             this.desctoTextBox.TabIndex = 16;
             // 
@@ -276,6 +354,7 @@
             // 
             // isvTextBox
             // 
+            this.isvTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.isvTextBox.Location = new System.Drawing.Point(120, 66);
             this.isvTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.isvTextBox.Name = "isvTextBox";
@@ -285,103 +364,38 @@
             // 
             // guardarButton
             // 
-            this.guardarButton.Enabled = false;
-            this.guardarButton.Location = new System.Drawing.Point(317, 598);
+            this.guardarButton.Location = new System.Drawing.Point(320, 611);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(291, 26);
             this.guardarButton.TabIndex = 15;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // cancelarButton
             // 
+            this.cancelarButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarButton.Enabled = false;
-            this.cancelarButton.Location = new System.Drawing.Point(649, 598);
+            this.cancelarButton.Location = new System.Drawing.Point(650, 611);
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.Size = new System.Drawing.Size(291, 26);
             this.cancelarButton.TabIndex = 16;
             this.cancelarButton.Text = "Cancelar";
             this.cancelarButton.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // errorProvider1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 282);
-            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 19);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Ticket Activo:";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(132, 284);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // descripcionRichTextBox
-            // 
-            this.descripcionRichTextBox.Enabled = false;
-            this.descripcionRichTextBox.Location = new System.Drawing.Point(202, 160);
-            this.descripcionRichTextBox.Name = "descripcionRichTextBox";
-            this.descripcionRichTextBox.Size = new System.Drawing.Size(999, 52);
-            this.descripcionRichTextBox.TabIndex = 17;
-            this.descripcionRichTextBox.Text = "";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ordenador",
-            "Celular"});
-            this.comboBox1.Location = new System.Drawing.Point(183, 69);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 18;
-            // 
-            // respuestaRichTextBox
-            // 
-            this.respuestaRichTextBox.Enabled = false;
-            this.respuestaRichTextBox.Location = new System.Drawing.Point(202, 229);
-            this.respuestaRichTextBox.Name = "respuestaRichTextBox";
-            this.respuestaRichTextBox.Size = new System.Drawing.Size(999, 52);
-            this.respuestaRichTextBox.TabIndex = 19;
-            this.respuestaRichTextBox.Text = "";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(183, 113);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 26);
-            this.textBox1.TabIndex = 21;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(18, 117);
-            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(148, 19);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Número  de serie: ";
+            this.errorProvider1.ContainerControl = this;
             // 
             // Ticket
             // 
+            this.AcceptButton = this.guardarButton;
+            this.ApplyAeroTheme = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1239, 636);
+            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.CancelButton = this.cancelarButton;
+            this.ClientSize = new System.Drawing.Size(1235, 649);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.guardarButton);
@@ -393,12 +407,14 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Ticket";
             this.Text = "Ticket";
+            this.Load += new System.EventHandler(this.Ticket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +449,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox serieTextBox;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Entidades
 {
-    public class Ticket
+    public class TicketEntidad
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
@@ -16,12 +16,12 @@ namespace Entidades
         public Decimal Total { get; set; }
         public bool Activo { get; set; }
         public string NumeroSerie { get; set; }
-        public Ticket()
+        public TicketEntidad()
         {
 
         }
 
-        public Ticket(int id, DateTime fecha, string nombreCliente, string tipoSoporte, string numeroSerie, string descripcionSolicitud, string descripcionRespuesta, decimal precio, decimal iSV, decimal descuento, decimal total, bool activo)
+        public TicketEntidad(int id, DateTime fecha, string nombreCliente, string tipoSoporte, string numeroSerie, string descripcionSolicitud, string descripcionRespuesta, decimal precio, decimal iSV, decimal descuento, decimal total, bool activo)
         {
             Id = id;
             Fecha = fecha;
