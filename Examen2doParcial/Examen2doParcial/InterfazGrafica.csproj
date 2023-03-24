@@ -114,5 +114,21 @@
   <ItemGroup>
     <None Include="Resources\check %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\generatetables_ok_home_out_edit_generar_1491.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-file_40454.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseDatos\BaseDatos.csproj">
+      <Project>{30483132-3fb9-4e3a-8737-11bb1f7e7400}</Project>
+      <Name>BaseDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{8136c440-50ca-42c6-8171-ef374a556d9a}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
