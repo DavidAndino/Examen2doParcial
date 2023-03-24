@@ -44,7 +44,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.clienteTextBox = new System.Windows.Forms.TextBox();
+            this.idClienteTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.precioTextBox = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@
             this.guardarButton = new System.Windows.Forms.Button();
             this.cancelarButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,7 +69,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(1119, 35);
+            this.dateTimePicker1.Location = new System.Drawing.Point(1073, 35);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(108, 26);
@@ -99,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1043, 39);
+            this.label2.Location = new System.Drawing.Point(997, 39);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 19);
@@ -118,6 +119,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.nombreTextBox);
             this.groupBox2.Controls.Add(this.serieTextBox);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.respuestaRichTextBox);
@@ -127,13 +129,13 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.clienteTextBox);
+            this.groupBox2.Controls.Add(this.idClienteTextBox);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 79);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1215, 328);
+            this.groupBox2.Size = new System.Drawing.Size(1166, 328);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de Ticket";
@@ -141,7 +143,7 @@
             // serieTextBox
             // 
             this.serieTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.serieTextBox.Location = new System.Drawing.Point(183, 113);
+            this.serieTextBox.Location = new System.Drawing.Point(163, 113);
             this.serieTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.serieTextBox.Name = "serieTextBox";
             this.serieTextBox.Size = new System.Drawing.Size(233, 26);
@@ -163,7 +165,7 @@
             this.respuestaRichTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.respuestaRichTextBox.Location = new System.Drawing.Point(210, 229);
             this.respuestaRichTextBox.Name = "respuestaRichTextBox";
-            this.respuestaRichTextBox.Size = new System.Drawing.Size(999, 52);
+            this.respuestaRichTextBox.Size = new System.Drawing.Size(934, 52);
             this.respuestaRichTextBox.TabIndex = 19;
             this.respuestaRichTextBox.Text = "";
             // 
@@ -172,18 +174,19 @@
             this.descripcionRichTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.descripcionRichTextBox.Location = new System.Drawing.Point(210, 159);
             this.descripcionRichTextBox.Name = "descripcionRichTextBox";
-            this.descripcionRichTextBox.Size = new System.Drawing.Size(999, 52);
+            this.descripcionRichTextBox.Size = new System.Drawing.Size(934, 52);
             this.descripcionRichTextBox.TabIndex = 17;
             this.descripcionRichTextBox.Text = "";
             // 
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Ordenador",
-            "Celular"});
-            this.comboBox1.Location = new System.Drawing.Point(183, 69);
+            "Celular",
+            "Ordenador"});
+            this.comboBox1.Location = new System.Drawing.Point(163, 69);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 18;
@@ -233,14 +236,15 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Descripción Solicitud: ";
             // 
-            // clienteTextBox
+            // idClienteTextBox
             // 
-            this.clienteTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.clienteTextBox.Location = new System.Drawing.Point(183, 27);
-            this.clienteTextBox.Margin = new System.Windows.Forms.Padding(5);
-            this.clienteTextBox.Name = "clienteTextBox";
-            this.clienteTextBox.Size = new System.Drawing.Size(233, 26);
-            this.clienteTextBox.TabIndex = 6;
+            this.idClienteTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.idClienteTextBox.Location = new System.Drawing.Point(163, 27);
+            this.idClienteTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.idClienteTextBox.Name = "idClienteTextBox";
+            this.idClienteTextBox.Size = new System.Drawing.Size(121, 26);
+            this.idClienteTextBox.TabIndex = 6;
+            this.idClienteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clienteTextBox_KeyPress);
             // 
             // label4
             // 
@@ -249,15 +253,15 @@
             this.label4.Location = new System.Drawing.Point(18, 31);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 19);
+            this.label4.Size = new System.Drawing.Size(127, 19);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Nombre  de Cliente: ";
+            this.label4.Text = "DNI de Cliente: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 73);
+            this.label3.Location = new System.Drawing.Point(18, 74);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 19);
@@ -272,6 +276,7 @@
             this.precioTextBox.Name = "precioTextBox";
             this.precioTextBox.Size = new System.Drawing.Size(94, 26);
             this.precioTextBox.TabIndex = 12;
+            this.precioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precioTextBox_KeyPress);
             // 
             // label7
             // 
@@ -294,7 +299,7 @@
             this.groupBox3.Controls.Add(this.isvTextBox);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.precioTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(1002, 413);
+            this.groupBox3.Location = new System.Drawing.Point(953, 413);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(225, 200);
             this.groupBox3.TabIndex = 14;
@@ -364,7 +369,7 @@
             // 
             // guardarButton
             // 
-            this.guardarButton.Location = new System.Drawing.Point(320, 611);
+            this.guardarButton.Location = new System.Drawing.Point(268, 611);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(291, 26);
             this.guardarButton.TabIndex = 15;
@@ -376,7 +381,7 @@
             // 
             this.cancelarButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarButton.Enabled = false;
-            this.cancelarButton.Location = new System.Drawing.Point(650, 611);
+            this.cancelarButton.Location = new System.Drawing.Point(598, 611);
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.Size = new System.Drawing.Size(291, 26);
             this.cancelarButton.TabIndex = 16;
@@ -387,15 +392,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // nombreTextBox
+            // 
+            this.nombreTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.nombreTextBox.Location = new System.Drawing.Point(294, 27);
+            this.nombreTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.nombreTextBox.Name = "nombreTextBox";
+            this.nombreTextBox.Size = new System.Drawing.Size(431, 26);
+            this.nombreTextBox.TabIndex = 22;
+            // 
             // Ticket
             // 
-            this.AcceptButton = this.guardarButton;
             this.ApplyAeroTheme = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.CancelButton = this.cancelarButton;
-            this.ClientSize = new System.Drawing.Size(1235, 649);
+            this.ClientSize = new System.Drawing.Size(1198, 649);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.guardarButton);
@@ -432,7 +445,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox clienteTextBox;
+        private System.Windows.Forms.TextBox idClienteTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -452,5 +465,6 @@
         private System.Windows.Forms.TextBox serieTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox nombreTextBox;
     }
 }

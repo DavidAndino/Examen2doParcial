@@ -14,12 +14,14 @@ namespace Examen2doParcial
         //creando objetos globales
         TicketEntidad boleto = new TicketEntidad();
         TicketDB boletoDB = new TicketDB();
-
+        ClienteEntidad cliente = new ClienteEntidad();
+        ClienteDB clienteDeDB = new ClienteDB();
+        decimal descto = 0;
         private void guardarButton_Click(object sender, EventArgs e)
         {
-            decimal isv, descto;
+
             boleto.Fecha = dateTimePicker1.Value;
-            boleto.NombreCliente = clienteTextBox.Text;
+
             boleto.TipoSoporte = comboBox1.Text;
             boleto.NumeroSerie = serieTextBox.Text;
             boleto.DescripcionSolicitud = descripcionRichTextBox.Text;
@@ -27,13 +29,14 @@ namespace Examen2doParcial
             boleto.Activo = checkBox1.Checked;
 
             //validando que no haya entradas vacias y en caso de no haber, se asignan valores al objeto "boleto" de la clase "TicketEntidad"
-            if (string.IsNullOrEmpty(clienteTextBox.Text))
+            if (string.IsNullOrEmpty(idClienteTextBox.Text))
             {
-                errorProvider1.SetError(clienteTextBox, "Ingrese el nombre del cliente");
-                clienteTextBox.Focus();
+                errorProvider1.SetError(idClienteTextBox, "Ingrese el DNI del cliente");
                 return;
             }
             errorProvider1.Clear();
+
+            cliente.ID = idClienteTextBox.Text;
 
             if (string.IsNullOrEmpty(comboBox1.Text))
             {
@@ -74,21 +77,9 @@ namespace Examen2doParcial
             }
             errorProvider1.Clear();
 
-            boleto.Precio = Convert.ToDecimal(precioTextBox.Text);//asignando precio
-            //proceso
-            boleto.ISV = boleto.Precio * 0.15M;//calculando isv
-            //valores moetarios
-            isvTextBox.Text = boleto.ISV.ToString();//llenando textBox del impuesto
-            if (desctoTextBox.Text != "")
-            {
-                descto = Convert.ToDecimal(desctoTextBox.Text);
-                boleto.Descuento = descto;//asignando descuento
-            }
-            boleto.Total = (boleto.Precio + boleto.ISV) - boleto.Descuento;//calculando total
-            totalTextBox.Text = boleto.Total.ToString();//llenando text box de total
-
             //definiendo variable que almacenara el valor de la variable booleana en el metodo "ticketGuardado" de la  clase "TicketDB"
-            bool guardado = boletoDB.ticketGuardado(boleto);
+            string idCliente = cliente.ID;
+            bool guardado = boletoDB.ticketGuardado(boleto, idCliente);
 
             //evaluando si la variable anterior trae un valor verdadero o falso
             if (guardado)//si es verdadero
@@ -107,6 +98,32 @@ namespace Examen2doParcial
             idUsuarioTextBox.Text = System.Threading.Thread.CurrentPrincipal.Identity.Name;
         }
 
+        private void clienteTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(idClienteTextBox.Text))
+            {
+                cliente = clienteDeDB.traerClientesPorID(idClienteTextBox.Text);
+                nombreTextBox.Text = cliente.Nombre;
+            }
+        }
 
+        private void precioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(precioTextBox.Text))
+            {
+                boleto.Precio = Convert.ToDecimal(precioTextBox.Text);//asignando precio
+                boleto.ISV = boleto.Precio * 0.15M;//calculando isv
+                                                   //valores moetarios
+                isvTextBox.Text = boleto.ISV.ToString();//llenando textBox del impuesto
+                if (desctoTextBox.Text != "")
+                {
+                    descto = Convert.ToDecimal(desctoTextBox.Text);
+                    boleto.Descuento = descto;//asignando descuento
+                }
+                boleto.Total = (boleto.Precio + boleto.ISV) - boleto.Descuento;//calculando total
+                totalTextBox.Text = boleto.Total.ToString();//llenando text box de total                                                      //proceso
+
+            }
+        }
     }
 }
