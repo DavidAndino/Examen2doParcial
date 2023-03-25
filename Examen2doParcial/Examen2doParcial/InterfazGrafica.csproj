@@ -154,5 +154,23 @@
   <ItemGroup>
     <None Include="Resources\degradado azul.jfif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_78348.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_783482.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62914memo_109205.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forbidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_icon-icons.com_73703.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

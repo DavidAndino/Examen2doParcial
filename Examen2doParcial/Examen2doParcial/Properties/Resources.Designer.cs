@@ -63,6 +63,26 @@ namespace Examen2doParcial.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _62914memo_109205 {
+            get {
+                object obj = ResourceManager.GetObject("62914memo_109205", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancel_icon_icons_com_73703 {
+            get {
+                object obj = ResourceManager.GetObject("Cancel_icon-icons.com_73703", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check {
             get {
                 object obj = ResourceManager.GetObject("check", resourceCulture);
@@ -93,6 +113,16 @@ namespace Examen2doParcial.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap forbidden {
+            get {
+                object obj = ResourceManager.GetObject("forbidden", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap generatetables_ok_home_out_edit_generar_1491 {
             get {
                 object obj = ResourceManager.GetObject("generatetables_ok_home_out_edit_generar_1491", resourceCulture);
@@ -116,6 +146,36 @@ namespace Examen2doParcial.Properties {
         internal static System.Drawing.Bitmap new_file_40454 {
             get {
                 object obj = ResourceManager.GetObject("new-file_40454", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh {
+            get {
+                object obj = ResourceManager.GetObject("refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_78348 {
+            get {
+                object obj = ResourceManager.GetObject("save_78348", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_783482 {
+            get {
+                object obj = ResourceManager.GetObject("save_783482", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

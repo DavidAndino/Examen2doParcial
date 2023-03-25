@@ -27,55 +27,7 @@ namespace Examen2doParcial
             boleto.DescripcionSolicitud = descripcionRichTextBox.Text;
             boleto.DescripcionRespuesta = respuestaRichTextBox.Text;
             boleto.Activo = checkBox1.Checked;
-
-            //validando que no haya entradas vacias y en caso de no haber, se asignan valores al objeto "boleto" de la clase "TicketEntidad"
-            if (string.IsNullOrEmpty(idClienteTextBox.Text))
-            {
-                errorProvider1.SetError(idClienteTextBox, "Ingrese el DNI del cliente");
-                return;
-            }
-            errorProvider1.Clear();
-
             cliente.ID = idClienteTextBox.Text;
-
-            if (string.IsNullOrEmpty(comboBox1.Text))
-            {
-                errorProvider1.SetError(comboBox1, "Seleccione una opción");
-                return;
-            }
-            errorProvider1.Clear();
-
-            if (string.IsNullOrEmpty(serieTextBox.Text))
-            {
-                errorProvider1.SetError(serieTextBox, "Ingrese el número de serie o IMEI del equipo");
-                serieTextBox.Focus();
-                return;
-            }
-            errorProvider1.Clear();
-
-            if (string.IsNullOrEmpty(descripcionRichTextBox.Text))
-            {
-                errorProvider1.SetError(descripcionRichTextBox, "Ingrese una descripcion");
-                descripcionRichTextBox.Focus();
-                return;
-            }
-            errorProvider1.Clear();
-
-            if (string.IsNullOrEmpty(respuestaRichTextBox.Text))
-            {
-                errorProvider1.SetError(respuestaRichTextBox, "Ingrese una respuesta");
-                respuestaRichTextBox.Focus();
-                return;
-            }
-            errorProvider1.Clear();
-
-            if (string.IsNullOrEmpty(precioTextBox.Text))
-            {
-                errorProvider1.SetError(precioTextBox, "Ingrese el precio");
-                precioTextBox.Focus();
-                return;
-            }
-            errorProvider1.Clear();
 
             //definiendo variable que almacenara el valor de la variable booleana en el metodo "ticketGuardado" de la  clase "TicketDB"
             string idCliente = cliente.ID;//pasando id de cliente a una variable de tipo string, que servira como parametro en la siguiente invocacion
@@ -86,7 +38,8 @@ namespace Examen2doParcial
             {
                 limpiarControles();
                 guardarButton.Enabled = false;
-                MessageBox.Show("Ticket generado exitosamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cancelarButton.Enabled = false;
+                MessageBox.Show("Ticket generado exitosamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -102,6 +55,13 @@ namespace Examen2doParcial
 
         private void clienteTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //validando que solo se ingresen valores numericos
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+
+            //validando que se presione "Enter" en el campo de Id del cliente, y que este no este vacio
             if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(idClienteTextBox.Text))
             {
                 cliente = clienteDeDB.traerClientesPorID(idClienteTextBox.Text);
@@ -111,8 +71,17 @@ namespace Examen2doParcial
 
         private void precioTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //validando que solo se ingresen valores numericos
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+                errorProvider1.SetError(precioTextBox, "Solo pueden ingresar valores numéricos en este campo");
+            }
+
+            //validando que se presione enter y que el control de precio no este vacio
             if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(precioTextBox.Text))
             {
+                errorProvider1.Clear();//eliminando molesta  advertencia que podria quedar luego que se  ingresen datos correctos en los controles de precio, descuento  y/o id de cliente
                 boleto.Precio = Convert.ToDecimal(precioTextBox.Text);//asignando precio
                 boleto.ISV = boleto.Precio * 0.15M;//calculando isv
 
@@ -127,16 +96,17 @@ namespace Examen2doParcial
                 //proceso
                 boleto.Total = (boleto.Precio + boleto.ISV) - boleto.Descuento;//calculando total
                 totalTextBox.Text = boleto.Total.ToString();//llenando text box de total                                                      
-                guardarButton.Enabled = true;//habilitando boto para guardar una vez ingresado el precio
+                guardarButton.Enabled = true;
+                cancelarButton.Enabled = true;
             }
         }
         private void activarDesactivarBoton()
         {
             //si el usuario cancela o guarda el registro actual, por medio de esta condicion se vuelven a habilitar los controles desactivados, y a deshabilitar los activados
-            if (cancelar == true)
-            {
-                cancelarButton.Enabled = false;//desactivando boton cancelar si el usuario lo presiona, para que no quede activo en el siguiente registro.
-            }
+
+            guardarButton.Enabled = false;
+            cancelarButton.Enabled = false;//desactivando boton cancelar si el usuario lo presiona, para que no quede activo en el siguiente registro.
+
         }
 
         private void cancelarButton_Click(object sender, EventArgs e)
@@ -156,7 +126,6 @@ namespace Examen2doParcial
             isvTextBox.Clear();
             desctoTextBox.Clear();
             totalTextBox.Clear();
-            boleto = null;
             descto = 0;
         }
     }

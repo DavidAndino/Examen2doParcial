@@ -77,6 +77,11 @@ namespace Examen2doParcial
             activarDesactivarControlesYBotones();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            traerTicketsForm();//refrescando tabla si hay modificaciones en el motor de DB
+        }
+
         private void activarDesactivarControlesYBotones()
         {
             //si el usuario cancela o guarda el registro actual, por medio de esta condicion se vuelven a habilitar los controles desactivados, y a deshabilitar los activados
