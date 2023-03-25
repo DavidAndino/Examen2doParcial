@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.serieTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.respuestaRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -59,7 +60,6 @@
             this.guardarButton = new System.Windows.Forms.Button();
             this.cancelarButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -139,6 +139,15 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de Ticket";
+            // 
+            // nombreTextBox
+            // 
+            this.nombreTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.nombreTextBox.Location = new System.Drawing.Point(294, 27);
+            this.nombreTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.nombreTextBox.Name = "nombreTextBox";
+            this.nombreTextBox.Size = new System.Drawing.Size(431, 26);
+            this.nombreTextBox.TabIndex = 22;
             // 
             // serieTextBox
             // 
@@ -369,6 +378,7 @@
             // 
             // guardarButton
             // 
+            this.guardarButton.Enabled = false;
             this.guardarButton.Location = new System.Drawing.Point(268, 611);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(291, 26);
@@ -387,19 +397,11 @@
             this.cancelarButton.TabIndex = 16;
             this.cancelarButton.Text = "Cancelar";
             this.cancelarButton.UseVisualStyleBackColor = true;
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // nombreTextBox
-            // 
-            this.nombreTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.nombreTextBox.Location = new System.Drawing.Point(294, 27);
-            this.nombreTextBox.Margin = new System.Windows.Forms.Padding(5);
-            this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(431, 26);
-            this.nombreTextBox.TabIndex = 22;
             // 
             // Ticket
             // 

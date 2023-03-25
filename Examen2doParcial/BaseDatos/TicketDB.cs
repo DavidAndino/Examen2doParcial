@@ -1,5 +1,7 @@
 ﻿using Entidades;
 using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 using System.Text;
 namespace BaseDatos
 {
@@ -58,6 +60,70 @@ namespace BaseDatos
             {
             }
             return insertado;
+        }
+        public DataTable traerTickets()
+        {
+            DataTable dt = new DataTable();//instanciando objeto de esta clase
+            try
+            {
+                StringBuilder sqlTicket = new StringBuilder();//armando sentencia Sql a traves un objeto
+                sqlTicket.Append("SELECT * FROM ticket");//sentencia para traer todos los registros de la tabla Ticket de la base de datos
+
+                using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))//pasando un objeto de la conexion hacia MySql
+                {
+                    conexion.Open();//abriendo conexion
+
+                    using (MySqlCommand comando = new MySqlCommand(sqlTicket.ToString(), conexion))
+                    {
+                        comando.CommandType = CommandType.Text;//*especificando el tipo de comando que se ejecutara
+
+                        MySqlDataReader dr = comando.ExecuteReader();//trayendo los datos
+                        dt.Load(dr);//llenando el objeto de tipo "DataTable" con los registros almacenados en el objeto "dr" 
+                    }//esta sentencia de comando ejecuta la sentencia de sql
+                }//esta sentencia ayuda a que, cuando termina la conexion con la DB, se cierre la conexion
+            }
+            catch (System.Exception)
+            {
+            }
+
+            return dt;
+        }
+        public bool ticketModificado(TicketEntidad boleto)
+        {
+            bool editado = false;
+
+            try
+            {
+                StringBuilder sql = new StringBuilder();//armando sentencia Sql through un objeto
+                sql.Append(" UPDATE ticket SET ");//sentencia para editar algun registro
+
+                sql.Append(" Activo = @Activo ");//sentencias para editar solo el atributo de "Activo" en la DB
+
+                sql.Append(" WHERE IdTicket = @IdTicket; ");//solo permitiendo que se edite un ticket por un Id especificado
+                //sql.Append(" SELECT LAST_INSERT_ID(); ");
+
+                using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))//pasando un objeto de la conexion hacia MySql
+                {
+                    conexion.Open();//abriendo conexion
+
+                    using (MySqlCommand comando = new MySqlCommand(sql.ToString(), conexion))
+                    {
+                        comando.CommandType = System.Data.CommandType.Text;/*especificando el tipo de comando que se ejecutara
+                                                                            en este caso es un comando de texto, pues ee el codigo varchar el que se ingresa*/
+                        comando.Parameters.Add("@IdTicket", MySqlDbType.Int16).Value = boleto.Id;
+                        comando.Parameters.Add("@Activo", MySqlDbType.Bit).Value = boleto.Activo;
+
+                        comando.ExecuteNonQuery();//se va a ejecutar, pero no se devolvera algun registro
+                        editado = true;
+
+                    }//esta sentencia de comando ejecuta la sentencia de sql
+                }//esta sentencia ayuda a que, cuando termina la conexion con la DB, cerrar la conexion automatically
+            }
+            catch (Exception)
+            {
+            }
+
+            return editado;//se devuelve la variable "edited"
         }
     }
 }

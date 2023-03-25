@@ -123,7 +123,7 @@
             this.toolStripEx2.Office12Mode = false;
             this.toolStripEx2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripEx2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripEx2.Size = new System.Drawing.Size(100, 34);
+            this.toolStripEx2.Size = new System.Drawing.Size(69, 34);
             this.toolStripEx2.TabIndex = 0;
             // 
             // toolStripButton2
@@ -144,7 +144,7 @@
             this.toolStripEx1.Image = null;
             this.toolStripEx1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
-            this.toolStripEx1.Location = new System.Drawing.Point(102, 1);
+            this.toolStripEx1.Location = new System.Drawing.Point(71, 1);
             this.toolStripEx1.Name = "toolStripEx1";
             this.toolStripEx1.Office12Mode = false;
             this.toolStripEx1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -159,6 +159,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(75, 17);
             this.toolStripButton1.Text = "Registros";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Menu
             // 
@@ -167,6 +168,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(582, 263);
             this.Controls.Add(this.ribbonControlAdv1);
+            this.IsMdiContainer = true;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
