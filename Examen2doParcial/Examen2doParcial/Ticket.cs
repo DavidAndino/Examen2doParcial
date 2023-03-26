@@ -62,15 +62,18 @@ namespace Examen2doParcial
             //validando que se presione "Enter" en el campo de Id del cliente, y que este no este vacio
             if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(idClienteTextBox.Text))
             {
-                cliente = clienteDeDB.traerClientesPorID(idClienteTextBox.Text);
-                if (cliente != null)
+                //validando que la identidad ingresada este registrada en la base de datos
+                cliente = clienteDeDB.traerClientesPorID(idClienteTextBox.Text);//pasando la id ingresada en el textbox al parametro del metodo traerClientesPorID
+
+                if (cliente != null)//si la identidad ingresada conincide con una de la base de datos
                 {
-                    nombreTextBox.Text = cliente.Nombre;
+                    nombreTextBox.Text = cliente.Nombre;//se llena el textBox con el nombre respectivo del cliente
                 }
                 else if (cliente == null)
                 {
                     MessageBox.Show("No se pudo encontrar el nombre del cliente en el sistema. Verifique el Nº de DNI ingresado o regístrelo en el sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     nombreTextBox.Clear();//limpiando nombre de cliente en caso de que el usuario haya ingresado uno que si esta en la base de datos, pero que no era el que queria ingresar
+                    return;
                 }
 
 
