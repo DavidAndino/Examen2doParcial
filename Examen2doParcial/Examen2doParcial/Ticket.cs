@@ -16,8 +16,7 @@ namespace Examen2doParcial
         TicketDB boletoDB = new TicketDB();
         ClienteEntidad cliente = new ClienteEntidad();
         ClienteDB clienteDeDB = new ClienteDB();
-        decimal descto = 0;
-        bool cancelar, guardar;
+        decimal descto;
         private void guardarButton_Click(object sender, EventArgs e)
         {
 
@@ -37,8 +36,7 @@ namespace Examen2doParcial
             if (guardado)//si es verdadero
             {
                 limpiarControles();
-                guardarButton.Enabled = false;
-                cancelarButton.Enabled = false;
+                DesactivarBotones();
                 MessageBox.Show("Ticket generado exitosamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -65,7 +63,17 @@ namespace Examen2doParcial
             if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(idClienteTextBox.Text))
             {
                 cliente = clienteDeDB.traerClientesPorID(idClienteTextBox.Text);
-                nombreTextBox.Text = cliente.Nombre;
+                if (cliente != null)
+                {
+                    nombreTextBox.Text = cliente.Nombre;
+                }
+                else if (cliente == null)
+                {
+                    MessageBox.Show("No se pudo encontrar el nombre del cliente en el sistema. Verifique el Nº de DNI ingresado o regístrelo en el sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    nombreTextBox.Clear();//limpiando nombre de cliente en caso de que el usuario haya ingresado uno que si esta en la base de datos, pero que no era el que queria ingresar
+                }
+
+
             }
         }
 
@@ -75,7 +83,11 @@ namespace Examen2doParcial
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {
                 e.Handled = true;
-                errorProvider1.SetError(precioTextBox, "Solo pueden ingresar valores numéricos en este campo");
+                errorProvider1.SetError(precioTextBox, "Solo puede ingresar valores numéricos en este campo");
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             //validando que se presione enter y que el control de precio no este vacio
@@ -96,23 +108,39 @@ namespace Examen2doParcial
                 //proceso
                 boleto.Total = (boleto.Precio + boleto.ISV) - boleto.Descuento;//calculando total
                 totalTextBox.Text = boleto.Total.ToString();//llenando text box de total                                                      
-                guardarButton.Enabled = true;
-                cancelarButton.Enabled = true;
+                ActivarBotones();
             }
         }
-        private void activarDesactivarBoton()
+        private void DesactivarBotones()
         {
-            //si el usuario cancela o guarda el registro actual, por medio de esta condicion se vuelven a habilitar los controles desactivados, y a deshabilitar los activados
-
             guardarButton.Enabled = false;
             cancelarButton.Enabled = false;//desactivando boton cancelar si el usuario lo presiona, para que no quede activo en el siguiente registro.
 
         }
+        private void ActivarBotones()
+        {
+            guardarButton.Enabled = true;
+            cancelarButton.Enabled = true;//desactivando boton cancelar si el usuario lo presiona, para que no quede activo en el siguiente registro.
 
+        }
         private void cancelarButton_Click(object sender, EventArgs e)
         {
             limpiarControles();
-            activarDesactivarBoton();
+            DesactivarBotones();
+        }
+
+        private void desctoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //validando que solo se  ingresen numeros
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+                errorProvider1.SetError(desctoTextBox, "Solo puede ingresar valores numéricos en este campo");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
         }
 
         private void limpiarControles()
@@ -126,7 +154,7 @@ namespace Examen2doParcial
             isvTextBox.Clear();
             desctoTextBox.Clear();
             totalTextBox.Clear();
-            descto = 0;
+            boleto.Descuento = 0;
         }
     }
 }

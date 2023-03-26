@@ -381,6 +381,7 @@
             this.desctoTextBox.Name = "desctoTextBox";
             this.desctoTextBox.Size = new System.Drawing.Size(89, 26);
             this.desctoTextBox.TabIndex = 16;
+            this.desctoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.desctoTextBox_KeyPress);
             // 
             // label8
             // 
